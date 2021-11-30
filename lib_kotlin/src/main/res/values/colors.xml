@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  预设颜色  -->
+    <color name="fox_pure_white">#FFFF</color>
+    <color name="fox_white_90">#E6FFFFFF</color>
+    <color name="fox_pure_black">#FF000000</color>
+    <color name="fox_pure_green">#00FF00</color>
+    <color name="fox_pure_red">#FF0000</color>
+    <color name="fox_pure_blue">#0000FF</color>
+    <color name="fox_yellow">#FFCC00</color>
+    <!--  常用颜色  -->
+    <color name="fox_divider_color">#1A979797</color>
+
+    <!--  整活儿颜色  -->
+    <!--洛天依-->
+    <color name="fox_luo_tianyi">#66CCFF</color>
+    <!--人民币配色-->
+    <!--100元-->
+    <color name="fox_rmb_100_0">#BD0E2B</color>
+    <color name="fox_rmb_100_1">#B0273E</color>
+    <color name="fox_rmb_100_2">#C93649</color>
+    <color name="fox_rmb_100_3">#EB4035</color>
+    <color name="fox_rmb_100_4">#D55F6F</color>
+    <color name="fox_rmb_100_5">#F5ACB9</color>
+    <!--50元-->
+    <color name="fox_rmb_50_0">#3D6658</color>
+    <color name="fox_rmb_50_1">#507564</color>
+    <color name="fox_rmb_50_2">#529A82</color>
+    <color name="fox_rmb_50_3">#A9D5C6</color>
+    <color name="fox_rmb_50_4">#BCDCEB</color>
+    <color name="fox_rmb_50_5">#BDD69F</color>
+    <!--20元-->
+    <color name="fox_rmb_20_0">#8E4B43</color>
+    <color name="fox_rmb_20_1">#92513D</color>
+    <color name="fox_rmb_20_2">#9E5E45</color>
+    <color name="fox_rmb_20_3">#DEA97F</color>
+    <color name="fox_rmb_20_4">#F2C987</color>
+    <color name="fox_rmb_20_5">#F3E1DF</color>
+    <!--10元-->
+    <color name="fox_rmb_10_0">#355389</color>
+    <color name="fox_rmb_10_1">#3F689E</color>
+    <color name="fox_rmb_10_2">#5292C0</color>
+    <color name="fox_rmb_10_3">#94D3F2</color>
+    <color name="fox_rmb_10_4">#BEDEED</color>
+    <color name="fox_rmb_10_5">#CFE3EE</color>
+    <!--5元-->
+    <color name="fox_rmb_5_0">#2C1C4D</color>
+    <color name="fox_rmb_5_1">#584572</color>
+    <color name="fox_rmb_5_2">#5292C0</color>
+    <color name="fox_rmb_5_3">#94D3F2</color>
+    <color name="fox_rmb_5_4">#BEDEED</color>
+    <color name="fox_rmb_5_5">#CFE3EE</color>
+    <!--1元-->
+    <color name="fox_rmb_1_0">#4C564B</color>
+    <color name="fox_rmb_1_1">#3D573E</color>
+    <color name="fox_rmb_1_2">#46766A</color>
+    <color name="fox_rmb_1_3">#69865A</color>
+    <color name="fox_rmb_1_4">#B1D097</color>
+    <color name="fox_rmb_1_5">#E1E7D9</color>
+    <!--5角-->
+    <color name="fox_rmb_d5_0">#543C4F</color>
+    <color name="fox_rmb_d5_1">#634459</color>
+    <color name="fox_rmb_d5_2">#785059</color>
+    <color name="fox_rmb_d5_3">#9A7B81</color>
+    <color name="fox_rmb_d5_4">#CEACB3</color>
+    <color name="fox_rmb_d5_5">#E3C7C5</color>
+    <!--2角-->
+    <color name="fox_rmb_d2_0">#414445</color>
+    <color name="fox_rmb_d2_1">#4A615C</color>
+    <color name="fox_rmb_d2_2">#517177</color>
+    <color name="fox_rmb_d2_3">#7E8D7A</color>
+    <color name="fox_rmb_d2_4">#A2AC9E</color>
+    <color name="fox_rmb_d2_5">#CBCEC1</color>
+    <!--1角-->
+    <color name="fox_rmb_d1_0">#45302F</color>
+    <color name="fox_rmb_d1_1">#3D3434</color>
+    <color name="fox_rmb_d1_2">#6E5655</color>
+    <color name="fox_rmb_d1_3">#59473D</color>
+    <color name="fox_rmb_d1_4">#AF9A8B</color>
+    <color name="fox_rmb_d1_5">#DCCFC0</color>
+</resources>
