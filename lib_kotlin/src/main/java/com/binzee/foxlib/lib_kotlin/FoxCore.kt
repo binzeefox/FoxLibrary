@@ -22,17 +22,28 @@ import kotlin.collections.ArrayList
 object FoxCore {
     // 应用Context
     lateinit var appContext: Context
+
     // 模拟返回栈
     val simulatedBackStack = SimulatedActivityStack()
+
     // 资源文件
     val resources: Resources
         get() {
             return appContext.resources
         }
+
     // 版本名
     val versionName: String get() = PackageUtil.getVersionName(appContext)
+
     // 版本号
     val versionCode: Long get() = PackageUtil.getVersionCode(appContext)
+
+    // 激活的Locale
+    val activeLocale: Locale
+        get() {
+            val tag = FoxConfigs.readLanguageTag() ?: return Locale.getDefault()
+            return Locale.forLanguageTag(tag)
+        }
 
     private val mMainHandler = Handler(Looper.getMainLooper())
 
@@ -46,10 +57,7 @@ object FoxCore {
         registerActivityCallback()
 
         // 多语言设置
-        FoxConfigs.readLanguageTag()?.apply {
-            val locale = Locale.forLanguageTag(this)
-            setLocale(locale, false)
-        }
+        setLocale(activeLocale, false)
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -96,7 +104,8 @@ object FoxCore {
      * 注册Activity回调
      */
     private fun registerActivityCallback() {
-        (appContext as Application).registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
+        (appContext as Application).registerActivityLifecycleCallbacks(object :
+            Application.ActivityLifecycleCallbacks {
             override fun onActivityCreated(p0: Activity, p1: Bundle?) {
                 // 入栈
                 simulatedBackStack.push(p0)

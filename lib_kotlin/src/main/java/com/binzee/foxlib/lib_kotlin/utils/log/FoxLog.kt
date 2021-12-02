@@ -1,6 +1,6 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
 
-package com.binzee.foxlib.lib_kotlin.utils
+package com.binzee.foxlib.lib_kotlin.utils.log
 
 /**
  * 日志类
@@ -13,12 +13,12 @@ object FoxLog {
     /**
      * 日志等级
      */
-    enum class Level {
-        Verbose,
-        Debug,
-        Info,
-        Warn,
-        Error
+    enum class Level(val tag: String) {
+        Verbose("V"),
+        Debug("D"),
+        Info("D"),
+        Warn("W"),
+        Error("E")
     }
 
     /**
