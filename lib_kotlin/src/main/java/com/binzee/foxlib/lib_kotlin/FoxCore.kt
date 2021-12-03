@@ -160,9 +160,9 @@ object FoxCore {
 
         fun snapshot(): List<Activity> = ArrayList(activityStack)
 
-        fun peek(): Activity = activityStack.peek()
+        fun peek(): Activity? = activityStack.peek()
 
-        fun pop() = activityStack.pop()
+        fun pop(): Activity? = activityStack.pop()
 
         fun push(activity: Activity) = activityStack.push(activity)
     }
