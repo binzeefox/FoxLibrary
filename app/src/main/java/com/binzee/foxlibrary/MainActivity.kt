@@ -1,5 +1,6 @@
 package com.binzee.foxlibrary
 
+import android.Manifest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,8 @@ import android.view.View
 import com.binzee.foxlib.lib_kotlin.utils.ViewTool
 import com.binzee.foxlib.lib_kotlin.utils.alert.SnackbarUtil
 import com.binzee.foxlib.lib_kotlin.utils.alert.ToastUtil
+import com.binzee.foxlib.lib_kotlin.utils.lifecycle.permission.OnPermissionResultListener
+import com.binzee.foxlib.lib_kotlin.utils.lifecycle.permission.PermissionUtil
 import com.binzee.foxlib.lib_kotlin.utils.log.FoxLog
 import com.google.android.material.snackbar.Snackbar
 import java.lang.Exception
@@ -20,10 +23,34 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<View>(R.id.btn_btn).setOnClickListener {
-            SnackbarUtil.createCustom(window.decorView, "狐族万岁", Snackbar.LENGTH_INDEFINITE, SnackbarUtil.ActionData("好")).show()
-            index++
-        }
+//        findViewById<View>(R.id.btn_btn).setOnClickListener {
+//            SnackbarUtil.createCustom(
+//                window.decorView,
+//                "狐族万岁",
+//                Snackbar.LENGTH_INDEFINITE,
+//                SnackbarUtil.ActionData("好")
+//            ).show()
+//            index++
+//        }
+
+        requestPermission()
+    }
+
+    private fun requestPermission() {
+        PermissionUtil
+            .with(this)
+            .addPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+            .request(0x01) { requestCode, failedList, noAskList ->
+                if (failedList.isNotEmpty())
+                    SnackbarUtil.createCustom(
+                        findViewById(R.id.cl_main),
+                        "获取权限失败",
+                        Snackbar.LENGTH_INDEFINITE,
+                        SnackbarUtil.ActionData("重试" ) {
+                            requestPermission()
+                        }
+                    ).show()
+            }
     }
 
     /**
