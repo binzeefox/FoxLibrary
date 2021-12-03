@@ -24,7 +24,7 @@ class FileLog(
     private val flushDuration: Long = DEFAULT_FLUSH_DURATION
 ) : FoxLog.Logger {
     companion object {
-        private const val DEFAULT_FLUSH_DURATION = 3 * 60 * 1000L
+        private const val DEFAULT_FLUSH_DURATION = 30 * 1000L
 
         fun getDefaultLogDir(): File? {
             val dir = FoxCore.appContext.getExternalFilesDir("logs")

@@ -112,6 +112,6 @@ object FoxLog {
      * @return 若低于最低输出等级，则返回true
      */
     private fun shouldSkipLog(level: Level): Boolean {
-        return level.ordinal >= mLevel.ordinal
+        return level.ordinal < mLevel.ordinal
     }
 }
