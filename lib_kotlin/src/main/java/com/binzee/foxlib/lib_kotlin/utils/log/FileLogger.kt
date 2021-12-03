@@ -19,7 +19,7 @@ import java.util.concurrent.LinkedBlockingQueue
  * @author tong.xw
  * 2021/12/01 10:48
  */
-class FileLog(
+class FileLogger(
     private val logDir: File? = getDefaultLogDir(),
     private val flushDuration: Long = DEFAULT_FLUSH_DURATION
 ) : FoxLog.Logger {

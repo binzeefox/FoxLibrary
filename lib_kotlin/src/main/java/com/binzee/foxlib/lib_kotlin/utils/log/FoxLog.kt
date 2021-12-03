@@ -38,7 +38,7 @@ object FoxLog {
     }
 
     // 日志输出工具
-    private var mLogger: Logger? = null
+    private var mLogger: Logger = DefaultLogger()
     // 最低输出等级，默认为V
     private var mLevel = Level.Verbose
 
@@ -63,7 +63,7 @@ object FoxLog {
     fun v(tag: String, msg: String = "", e: Throwable? = null) {
         val level = Level.Verbose
         if (shouldSkipLog(level)) return
-        mLogger?.log(level, tag, msg, e)
+        mLogger.log(level, tag, msg, e)
     }
 
     /**
@@ -72,7 +72,7 @@ object FoxLog {
     fun d(tag: String, msg: String = "", e: Throwable? = null) {
         val level = Level.Debug
         if (shouldSkipLog(level)) return
-        mLogger?.log(level, tag, msg, e)
+        mLogger.log(level, tag, msg, e)
     }
 
     /**
@@ -81,7 +81,7 @@ object FoxLog {
     fun i(tag: String, msg: String = "", e: Throwable? = null) {
         val level = Level.Info
         if (shouldSkipLog(level)) return
-        mLogger?.log(level, tag, msg, e)
+        mLogger.log(level, tag, msg, e)
     }
 
     /**
@@ -90,7 +90,7 @@ object FoxLog {
     fun w(tag: String, msg: String = "", e: Throwable? = null) {
         val level = Level.Warn
         if (shouldSkipLog(level)) return
-        mLogger?.log(level, tag, msg, e)
+        mLogger.log(level, tag, msg, e)
     }
 
     /**
@@ -99,7 +99,7 @@ object FoxLog {
     fun e(tag: String, msg: String = "", e: Throwable? = null) {
         val level = Level.Error
         if (shouldSkipLog(level)) return
-        mLogger?.log(level, tag, msg, e)
+        mLogger.log(level, tag, msg, e)
     }
 
     ///////////////////////////////////////////////////////////////////////////

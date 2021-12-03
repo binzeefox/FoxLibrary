@@ -1,7 +1,7 @@
 package com.binzee.foxlibrary
 
 import android.app.Application
-import com.binzee.foxlib.lib_kotlin.utils.log.FileLog
+import com.binzee.foxlib.lib_kotlin.utils.log.FileLogger
 import com.binzee.foxlib.lib_kotlin.utils.log.FoxLog
 
 /**
@@ -14,6 +14,6 @@ class MyApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        FoxLog.setLog(FileLog())
+        FoxLog.setLog(FileLogger())
     }
 }
