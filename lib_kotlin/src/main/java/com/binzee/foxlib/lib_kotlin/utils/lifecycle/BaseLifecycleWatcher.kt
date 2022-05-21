@@ -21,11 +21,15 @@ abstract class BaseLifecycleWatcher(
         private set
 
     init {
-        watcherFragment = fm.findFragmentByTag(fragmentTag) ?: createWatcherFragment().also {
+        watcherFragment = fm.findFragmentByTag(fragmentTag) ?: getFragment().also {
             fm.beginTransaction()
                 .add(it, fragmentTag)
                 .commitNow()
         }
+    }
+
+    private fun getFragment(): Fragment {
+        return createWatcherFragment()
     }
 
     protected abstract fun createWatcherFragment(): Fragment

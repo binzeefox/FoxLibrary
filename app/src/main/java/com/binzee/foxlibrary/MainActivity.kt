@@ -4,16 +4,11 @@ import android.Manifest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import com.binzee.foxlib.lib_kotlin.utils.ViewTool
 import com.binzee.foxlib.lib_kotlin.utils.alert.SnackbarUtil
-import com.binzee.foxlib.lib_kotlin.utils.alert.ToastUtil
-import com.binzee.foxlib.lib_kotlin.utils.lifecycle.permission.OnPermissionResultListener
-import com.binzee.foxlib.lib_kotlin.utils.lifecycle.permission.PermissionUtil
-import com.binzee.foxlib.lib_kotlin.utils.log.FoxLog
+import com.binzee.foxlib.lib_kotlin.utils.async.AsyncUtilFactory
+import com.binzee.foxlib.lib_kotlin.utils.permission.PermissionUtil
 import com.google.android.material.snackbar.Snackbar
 import java.lang.Exception
-import java.lang.RuntimeException
 import java.net.NetworkInterface
 
 class MainActivity : AppCompatActivity() {
@@ -34,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 //        }
 
         requestPermission()
+        asyncTest()
     }
 
     private fun requestPermission() {
@@ -51,6 +47,18 @@ class MainActivity : AppCompatActivity() {
                         }
                     ).show()
             }
+    }
+
+    private fun asyncTest() {
+        // 获取默认的线程工具
+        val util = AsyncUtilFactory.threadPoolUtil.byDefault()
+        util.execute {
+            // 耗时操作
+        }
+        val future = util.future {
+            // 耗时操作
+        }
+        future.get()
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.binzee.foxlib.lib_kotlin.utils.lifecycle.permission
+package com.binzee.foxlib.lib_kotlin.utils.permission
 
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
