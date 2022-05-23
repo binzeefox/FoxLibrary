@@ -10,7 +10,7 @@ import java.util.*
  * @author tong.xw
  * 2021/11/30 10:39
  */
-object FoxConfigs {
+internal object FoxConfigs {
     private const val CONFIG_FILE_NAME = "FOX_CONFIG_FILE_NAME"
     private const val KEY_LANGUAGE_TAG = "FOX_KEY_LANGUAGE_TAG"
 

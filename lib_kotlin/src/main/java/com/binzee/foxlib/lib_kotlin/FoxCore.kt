@@ -24,7 +24,7 @@ object FoxCore {
     lateinit var appContext: Context
 
     // 模拟返回栈
-    val simulatedBackStack = SimulatedActivityStack()
+    internal val simulatedBackStack = SimulatedActivityStack()
 
     // 资源文件
     val resources: Resources
@@ -55,9 +55,6 @@ object FoxCore {
         appContext = ctx.applicationContext
         // 注册全局日志收集
         registerActivityCallback()
-
-        // 多语言设置
-        setLocale(activeLocale, false)
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -67,17 +64,14 @@ object FoxCore {
     /**
      * 设置语言
      *
+     * 需要重启Activity，并重写attachBaseContext
+     * @see com.binzee.foxlib.lib_kotlin.ui.FoxActivity
      * @param locale    区域设置
-     * @param localize  是否本地化该设置，以便下次开启app自动适配
-     * FIXME DEPRECATED
      */
-    fun setLocale(locale: Locale, localize: Boolean) {
-        val displayMetrics = resources.displayMetrics
-        val configuration = resources.configuration
-
-        configuration.setLocale(locale)
-        resources.updateConfiguration(configuration, displayMetrics)
-        if (localize) FoxConfigs.writeLanguageTag(locale.toLanguageTag())
+    fun setLocale(locale: Locale) {
+        if (Locale.getDefault() != locale)
+            Locale.setDefault(locale)
+        FoxConfigs.writeLanguageTag(locale.toLanguageTag())
     }
 
     /**

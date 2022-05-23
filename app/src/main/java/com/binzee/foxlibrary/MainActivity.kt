@@ -4,12 +4,15 @@ import android.Manifest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
+import com.binzee.foxlib.lib_kotlin.FoxCore
 import com.binzee.foxlib.lib_kotlin.utils.alert.SnackbarUtil
 import com.binzee.foxlib.lib_kotlin.utils.async.AsyncUtilFactory
 import com.binzee.foxlib.lib_kotlin.utils.permission.PermissionUtil
 import com.google.android.material.snackbar.Snackbar
 import java.lang.Exception
 import java.net.NetworkInterface
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     var index = 0
@@ -18,6 +21,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        findViewById<TextView>(R.id.btn_btn)
+            .also {
+                it.setText(R.string.change_locale)
+            }.setOnClickListener {
+                if (FoxCore.activeLocale == Locale.ENGLISH) {
+                    FoxCore.setLocale(Locale.CHINESE)
+                } else {
+                    FoxCore.setLocale(Locale.ENGLISH)
+                }
+                recreate()
+            }
 //        findViewById<View>(R.id.btn_btn).setOnClickListener {
 //            SnackbarUtil.createCustom(
 //                window.decorView,
@@ -28,8 +42,8 @@ class MainActivity : AppCompatActivity() {
 //            index++
 //        }
 
-        requestPermission()
-        asyncTest()
+//        requestPermission()
+//        asyncTest()
     }
 
     private fun requestPermission() {
@@ -42,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                         findViewById(R.id.cl_main),
                         "获取权限失败",
                         Snackbar.LENGTH_INDEFINITE,
-                        SnackbarUtil.ActionData("重试" ) {
+                        SnackbarUtil.ActionData("重试") {
                             requestPermission()
                         }
                     ).show()
