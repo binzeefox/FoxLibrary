@@ -1,10 +1,12 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'maven-publish'
 }
 
 def _versionCode = 1
-def _versionName = "0.0.1"
+def _versionName = "0.0.1:pre-version"
+def _jitpackPubVersionName = _versionName
 
 android {
     compileSdkVersion 31
@@ -35,6 +37,21 @@ android {
     }
 }
 
+// jitpack打包相关
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.fox_library'
+                artifactId = 'release'
+                version = _jitpackPubVersionName
+            }
+        }
+    }
+}
+
+// 依赖
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -50,7 +67,6 @@ dependencies {
 }
 
 // makeJar
-
 def jar_name = "FoxLib-kotlin-${_versionName}.jar"
 
 task makeJar(type: Copy) {
