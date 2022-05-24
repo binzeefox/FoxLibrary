@@ -67,7 +67,7 @@ dependencies {
 }
 
 // makeJar
-def jar_name = "FoxLib-kotlin-${_versionName}.jar"
+def jar_name = "FoxLib-kotlin-${_jitpackPubVersionName}.jar"
 
 task makeJar(type: Copy) {
     // 删除已存在jar
