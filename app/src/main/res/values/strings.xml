@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">FoxLibrary</string>
+    <string name="app_name">FoxLibrary示例应用</string>
     <string name="change_locale">修改Locale</string>
 </resources>

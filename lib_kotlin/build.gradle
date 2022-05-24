@@ -5,8 +5,8 @@ plugins {
 }
 
 def _versionCode = 1
-def _versionName = "0.0.1:pre-version"
-def _jitpackPubVersionName = _versionName
+def _versionName = "v0.0.1:pre-version"
+def _jitpackPubVersionName = "v0_0_1_pre_version"
 
 android {
     compileSdkVersion 31
